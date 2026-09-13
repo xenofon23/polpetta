@@ -8,6 +8,7 @@
   const noButton = document.querySelector("#noButton");
   const playfulMessage = document.querySelector("#playfulMessage");
   const crownButton = document.querySelector("#crownButton");
+  const fireworks = document.querySelector("#fireworks");
   const toast = document.querySelector("#royalToast");
   const noMessages = [
     "Nice try 😏",
@@ -104,7 +105,39 @@
     card.classList.add("is-hidden");
     confirmationCard.hidden = false;
     document.body.classList.add("is-celebrating");
+    launchFireworks();
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function launchFireworks() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const colors = ["#d89945", "#e88d91", "#7a2838", "#f5c7a8", "#fff4de"];
+    fireworks.replaceChildren();
+    [
+      { x: "14%", y: "24%", delay: "0ms" },
+      { x: "86%", y: "20%", delay: "300ms" },
+      { x: "50%", y: "12%", delay: "600ms" },
+      { x: "30%", y: "42%", delay: "900ms" },
+      { x: "70%", y: "38%", delay: "1200ms" },
+      { x: "18%", y: "68%", delay: "1500ms" },
+      { x: "82%", y: "66%", delay: "1800ms" }
+    ].forEach((burst) => {
+      const element = document.createElement("span");
+      element.className = "firework-burst";
+      element.style.setProperty("--burst-x", burst.x);
+      element.style.setProperty("--burst-y", burst.y);
+      element.style.setProperty("--burst-delay", burst.delay);
+      for (let index = 0; index < 18; index += 1) {
+        const particle = document.createElement("i");
+        const angle = (index / 18) * Math.PI * 2;
+        particle.style.setProperty("--particle-x", `${Math.cos(angle) * 72}px`);
+        particle.style.setProperty("--particle-y", `${Math.sin(angle) * 72}px`);
+        particle.style.setProperty("--particle-color", colors[index % colors.length]);
+        element.appendChild(particle);
+      }
+      fireworks.appendChild(element);
+    });
+    window.setTimeout(() => fireworks.replaceChildren(), 5000);
   }
 
   function showToast(message) {
