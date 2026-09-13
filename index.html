@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#fff7f1" />
+    <meta name="description" content="A royal little date invitation for Princess Polpetta." />
+    <title>Princess Polpetta</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="ambient-glow ambient-glow--one" aria-hidden="true"></div>
+      <div class="ambient-glow ambient-glow--two" aria-hidden="true"></div>
+      <div class="heart-field" aria-hidden="true">
+        <span class="float-heart float-heart--one">♥</span>
+        <span class="float-heart float-heart--two">♥</span>
+        <span class="float-heart float-heart--three">♥</span>
+        <span class="float-heart float-heart--four">♥</span>
+        <span class="float-heart float-heart--five">♥</span>
+        <span class="float-heart float-heart--six">♥</span>
+      </div>
+
+      <section class="invitation-wrap" aria-live="polite">
+        <article class="invitation-card" id="invitationCard">
+          <div class="card-ribbon" aria-hidden="true"><span>a very official-ish invite</span></div>
+          <button class="crown-button" id="crownButton" type="button" aria-label="Tap the crown for a royal surprise">👑</button>
+          <p class="eyebrow">Quick question</p>
+          <h1>Princess <em>Polpetta</em></h1>
+          <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <p class="question">Want to grab food<br />sometime?</p>
+          <p class="subtitle">I promise good food, good vibes,<br />and premium polpetta treatment.</p>
+
+          <div class="action-zone" id="actionZone">
+            <button class="choice-button choice-button--yes" id="yesButton" type="button">
+              <span>YES</span> <b aria-hidden="true">♥</b>
+            </button>
+            <button class="choice-button choice-button--no" id="noButton" type="button" tabindex="-1" aria-hidden="true">NO <span aria-hidden="true">🙈</span></button>
+            <p class="playful-message" id="playfulMessage" role="status" aria-live="polite"></p>
+          </div>
+          <p class="tiny-note">No pressure. Just good food. ✨</p>
+        </article>
+
+        <article class="confirmation-card" id="confirmationCard" hidden>
+          <div class="celebration-crown" aria-hidden="true">👑</div>
+          <p class="eyebrow">Excellent decision</p>
+          <h2>Nice. It's a date. <span>👑</span></h2>
+          <div class="ornament" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+          <p class="confirmation-message">Θα έρθω να σε παραλάβω το βράδυ,<br />κατόπιν επικοινωνίας. ❤️</p>
+          <p class="confirmation-note">Polpetta plans: activated.</p>
+          <p class="dress-code">Dress code: come hungry ✨</p>
+          <div class="polpetta-seal" aria-hidden="true"><span>♥</span><small>ROYAL<br />POLPETTA</small></div>
+        </article>
+
+        <p class="footer-note">Made with <span>♥</span> &amp; polpette</p>
+      </section>
+    </main>
+    <div class="toast" id="royalToast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
